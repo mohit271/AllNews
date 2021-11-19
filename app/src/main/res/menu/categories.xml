@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/top"
+        app:showAsAction="never"
+        android:title="Top News"/>
+    <item android:id="@+id/business"
+        app:showAsAction="never"
+        android:title="Business"/>
+    <item android:id="@+id/entertainment"
+        app:showAsAction="never"
+        android:title="Entertainmnet"/>
+    <item android:id="@+id/environment"
+        app:showAsAction="never"
+        android:title="Environment"/>
+    <item android:id="@+id/food"
+        app:showAsAction="never"
+        android:title="Food"/>
+    <item android:id="@+id/health"
+        app:showAsAction="never"
+        android:title="Health"/>
+    <item android:id="@+id/politics"
+        app:showAsAction="never"
+        android:title="Politics"/>
+    <item android:id="@+id/science"
+        app:showAsAction="never"
+        android:title="Science"/>
+    <item android:id="@+id/sports"
+        app:showAsAction="never"
+        android:title="Sports"/>
+    <item android:id="@+id/technology"
+        app:showAsAction="never"
+        android:title="Technology"/>
+    <item android:id="@+id/world"
+        app:showAsAction="never"
+        android:title="World"/>
+
+
+
+
+</menu>
