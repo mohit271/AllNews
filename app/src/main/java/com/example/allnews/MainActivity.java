@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -45,7 +48,10 @@ public class MainActivity extends AppCompatActivity implements NewsItemClicked {
 
     RecyclerView recyclerView;
     NewsListAdapter adapter=new NewsListAdapter(this);
+    String apiKey;
+
     SwipeRefreshLayout swipeRefreshLayout;
+
     String url =" https://newsdata.io/api/1/news?apikey=pub_22836518b766b0073dbc160e9d0d03788076&q=India&country=in&language=en&category=";
     String category="Top";
 
@@ -57,7 +63,17 @@ public class MainActivity extends AppCompatActivity implements NewsItemClicked {
 
         recyclerView =findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       // String url =" https://newsdata.io/api/1/news?apikey=pub_22836518b766b0073dbc160e9d0d03788076&q=India&country=in&language=en&category=Top ";
+
+
+        try {
+            ApplicationInfo applicationInfo = getApplicationContext().getPackageManager()
+                    .getApplicationInfo(getApplicationContext().getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle=applicationInfo.metaData;
+            apiKey=bundle.getString("keyValue");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        
         String catUrl=url+category;
         fetchData(catUrl);
         adapter =  new NewsListAdapter(this);
